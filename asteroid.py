@@ -11,6 +11,16 @@ class Asteroid(CircleShape):
         pygame.draw.circle(screen, "white", self.position, self.radius, 2)
     
     def update(self, dt):
+        """if self.position.x > pygame.display.get_surface().get_width():
+            self.position.x = 0
+        if self.position.x < 0:
+            self.position.x =  pygame.display.get_surface().get_width()
+        if self.position.y >  pygame.display.get_surface().get_height():
+            self.position.y = 0
+        if self.position.y < 0:
+            self.position.y =  pygame.display.get_surface().get_height()"""
+        # above wraps asteroid movement for any display size
+
         self.position += self.velocity * dt
     
     def split(self):
