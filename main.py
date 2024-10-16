@@ -1,5 +1,5 @@
 import pygame
-import constants as const
+from constants import SCREEN_HEIGHT, SCREEN_WIDTH
 from player import Player
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
@@ -7,7 +7,8 @@ from shot import Shot
 
 def main():
     pygame.init()
-    screen = pygame.display.set_mode((const.SCREEN_WIDTH, const.SCREEN_HEIGHT))
+    # sets initial display window size and allows for resizability
+    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.RESIZABLE)
     clock = pygame.time.Clock()
     dt = 0
 
@@ -20,8 +21,8 @@ def main():
     Asteroid.containers = (asteroids, updatable, drawable)
     AsteroidField.containers = updatable
 
-    x = const.SCREEN_WIDTH / 2
-    y = const.SCREEN_HEIGHT / 2
+    x = screen.get_width() / 2
+    y = screen.get_height() / 2
     p1 = Player(x, y)
     AsteroidField() 
 
