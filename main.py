@@ -39,7 +39,10 @@ def main():
             if asteroid.is_colliding(p1):
                 print("Game over!")
                 exit()
-                
+            for shot in shots:
+                if asteroid.is_colliding(shot):
+                    asteroid.split()
+                    shot.kill()
         for obj in drawable:
             if isinstance(obj, Shot):
                 obj.draw(screen, p1)
